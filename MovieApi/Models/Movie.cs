@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MovieApi.Models
 {
@@ -19,6 +20,11 @@ namespace MovieApi.Models
         [Range(1,240,ErrorMessage ="O campo duração deve ter no mínimo 1 e máximo 240 minutos!")]
         [Display(Name ="Duração")]
         public int Duracao {  get; set; }
+
+        public int CategoryId {  get; set; }
+
+        [JsonIgnore]
+        public Category ? Category {  get; set; }
 
     }
 }
