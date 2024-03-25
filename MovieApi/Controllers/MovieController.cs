@@ -65,7 +65,7 @@ namespace MovieApi.Controllers
         // PUT: Movie
         [HttpPost]
        
-        public ActionResult Edit(int id, Movie filme)
+        public IActionResult Edit(int id, Movie filme)
         {
            if(id!= filme.Id)
                 return BadRequest();
@@ -80,7 +80,7 @@ namespace MovieApi.Controllers
         
        
         // POST: Movie/{id}
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             var filmeExistente = _repository.Get(f => f.Id == id);
             if (filmeExistente == null)
