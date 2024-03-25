@@ -4,3 +4,11 @@ GET {{MovieApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+GET {{MovieApi_HostAddress}}/Movie/
+###
+
+GET {{MovieApi_HostAddress}}/Movie/2
+###
+GET {{MovieApi_HostAddress}}/Movie/Movie/2
+
+

@@ -32,14 +32,14 @@ namespace MovieApi.Controllers
 
         // GET: Movie
         [HttpGet]
-        public ActionResult<IEnumerable<Movie>> GetAll()
+        public ActionResult<IEnumerable<Movie>> Get()
         {
             var filmes = _repository.GetAll();
             return Ok(filmes);
         }
 
         // GET: Movie/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "ObterProduto")]
         public ActionResult Get(int id)
         {
             var filmeExistente = _repository.Get(m=>m.Id == id);
@@ -55,7 +55,7 @@ namespace MovieApi.Controllers
 
         // POST: Movie
         [HttpPost]
-        public IActionResult Create(Movie filme)
+        public IActionResult Post(Movie filme)
         {
             var filmeCriado = _repository.Create(filme);
             return new CreatedAtActionResult(nameof(Get), "Movie", new {id = filmeCriado.Id},filmeCriado);
@@ -63,9 +63,9 @@ namespace MovieApi.Controllers
 
 
         // PUT: Movie
-        [HttpPost]
+        [HttpPut("{id}")]
        
-        public IActionResult Edit(int id, Movie filme)
+        public IActionResult Put(int id, Movie filme)
         {
            if(id!= filme.Id)
                 return BadRequest();
@@ -77,9 +77,10 @@ namespace MovieApi.Controllers
         
         }
 
-        
-       
+
+
         // POST: Movie/{id}
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var filmeExistente = _repository.Get(f => f.Id == id);

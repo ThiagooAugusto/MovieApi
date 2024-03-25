@@ -16,7 +16,7 @@ namespace MovieApi.Controllers
 
         [HttpGet]
         // GET: Category
-        public ActionResult GetAll()
+        public ActionResult Get()
         {
             var categorias = _repository.GetAll();
             return Ok(categorias);
@@ -36,7 +36,7 @@ namespace MovieApi.Controllers
        
         // POST: Category
         [HttpPost]
-        public IActionResult Create(Category categoria)
+        public IActionResult Post(Category categoria)
         {
             var categoriaCriada = _repository.Create(categoria);
             return new CreatedAtActionResult(nameof(Get), "Category",
@@ -47,7 +47,7 @@ namespace MovieApi.Controllers
        
         // PUT: Category/{id}
         [HttpPut("{id}")]
-        public ActionResult Edit(int id, Category categoria)
+        public ActionResult Put(int id, Category categoria)
         {
             if(id!=categoria.Id)
                 return BadRequest();
