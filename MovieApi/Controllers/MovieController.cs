@@ -19,7 +19,7 @@ namespace MovieApi.Controllers
             _movieRepository = movieRepository;
         }
 
-        //GET: 
+        //GET: Movie/{id}
         [HttpGet("Movie/{id}")]
         public ActionResult<IEnumerable<Movie>> GetMoviesByCategory(int id)
         {
