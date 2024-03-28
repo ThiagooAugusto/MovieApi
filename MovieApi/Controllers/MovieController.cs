@@ -39,7 +39,7 @@ namespace MovieApi.Controllers
         }
 
         // GET: Movie/{id}
-        [HttpGet("{id}", Name = "ObterProduto")]
+        [HttpGet("{id}", Name = "GetMovie")]
         public ActionResult Get(int id)
         {
             var filmeExistente = _repository.Get(m=>m.Id == id);
