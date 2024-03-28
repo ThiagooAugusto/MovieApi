@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using MovieApi.Models;
 using MovieApi.Repositories.Interfaces;
 
+
 namespace MovieApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
         private readonly IBaseRepository<Category> _repository;
